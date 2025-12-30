@@ -22,24 +22,16 @@
 - **Scoring**: Rewards are computed as delta scores between steps; final reward is the sum of all step rewards.
 
 ### Quickstart
-Run an evaluation with default settings:
+
+Example eval script
 
 ```bash
-uv run vf-eval textworld_cooking_env
+vf-eval -n -1 -s -v -k "<API key>"\
+  -b "http://0.0.0.0:8000/v1"\
+  -m "Qwen/Qwen3-4B-Thinking-2507"\ 
+  --env-args '{"max_turns": 10,"difficulties": [1]}'\
+  textworld_cooking_env
 ```
-
-Configure model and sampling:
-
-```bash
-uv run vf-eval textworld_cooking_env \
-  -m gpt-4.1-mini \
-  -n 20 -r 3 -t 1024 -T 0.7 \
-  -a '{"difficulties": [1, 2, 3]}'
-```
-
-Notes:
-- Use `-a` / `--env-args` to pass environment-specific configuration as a JSON object.
-- The first run downloads the TWCooking dataset (~200MB) and may take a few minutes.
 
 ### Environment Arguments
 | Arg | Type | Default | Description |
