@@ -1,5 +1,5 @@
 [project]
-name = "textworld-cooking-env"
+name = "textworld_cooking_env"
 description = "TWCooking Environment from TALES Suit and GATA paper"
 tags = ["games", "multi-turn", "textworld", "cooking", "interactive-fiction", "xml", "train", "eval"]
 version = "0.1.0"
@@ -18,5 +18,5 @@ build-backend = "hatchling.build"
 include = ["textworld_cooking_env.py", "pyproject.toml"] 
 
 [tool.verifiers.eval]
-num_examples = 5
+num_examples = -1
 rollouts_per_example = 3
