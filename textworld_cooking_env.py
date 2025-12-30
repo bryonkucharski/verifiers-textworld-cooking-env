@@ -21,10 +21,21 @@ DEFAULT_SYSTEM_PROMPT = (
 
 tw_intro_text = """\n\n\n                    ________  ________  __    __  ________        \n                   |        \\|        \\|  \\  |  \\|        \\       \n                    \\$$$$$$$$| $$$$$$$$| $$  | $$ \\$$$$$$$$       \n                      | $$   | $$__     \\$$\\/  $$   | $$          \n                      | $$   | $$  \\     >$$  $$    | $$          \n                      | $$   | $$$$$    /  $$$$\\    | $$          \n                      | $$   | $$_____ |  $$ \\$$\\   | $$          \n                      | $$   | $$     \\| $$  | $$   | $$          \n                       \\$$    \\$$$$$$$$ \\$$   \\$$    \\$$          \n              __       __   ______   _______   __        _______  \n             |  \\  _  |  \\ /      \\ |       \\ |  \\      |       \\ \n             | $$ / \\ | $$|  $$$$$$\\| $$$$$$$\\| $$      | $$$$$$$\\\n             | $$/  $\\| $$| $$  | $$| $$__| $$| $$      | $$  | $$\n             | $$  $$$\\ $$| $$  | $$| $$    $$| $$      | $$  | $$\n             | $$ $$\\$$\\$$| $$  | $$| $$$$$$$\\| $$      | $$  | $$\n             | $$$$  \\$$$$| $$__/ $$| $$  | $$| $$_____ | $$__/ $$\n             | $$$    \\$$$ \\$$    $$| $$  | $$| $$     \\| $$    $$\n              \\$$      \\$$  \\$$$$$$  \\$$   \\$$ \\$$$$$$$$ \\$$$$$$$ \n\n"""
 
-prompt_template = """
-# Exact commands to run to beat the game
+# prompt_template = """
+# # Exact commands to run to beat the game
 
-{walkthrough}
+# {walkthrough}
+
+# # Observation
+
+# {obs}
+
+# # Action Templates
+
+# {command_templates}
+# """
+
+prompt_template = """
 
 # Observation
 
@@ -34,6 +45,8 @@ prompt_template = """
 
 {command_templates}
 """
+
+
 
 logger = logging.getLogger("verifiers.textworld_cooking_env")
 
@@ -140,7 +153,7 @@ class TWCookingEnv(vf.MultiTurnEnv):
         game_file = state["answer"]
         state["tw_env"] = TextWorldEnv(game_file)
         state["tw_env"].reset()
-        logger.debug(f"Setup environment in {time.time() - s:.1f} seconds")
+        logger.debug(f"Running game file:  {game_file}")
         return state
 
     @vf.cleanup

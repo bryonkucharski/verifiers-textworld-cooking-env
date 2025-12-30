@@ -1,0 +1,1 @@
+{"env_id": "textworld_cooking_env", "env_args": {"max_turns": 10}, "model": "Qwen/Qwen3-0.6B", "base_url": "http://0.0.0.0:8000/v1/", "num_examples": 20, "rollouts_per_example": 3, "sampling_args": {"n": 1, "extra_body": {}}, "time_ms": 208048.89392852783, "avg_reward": 0.15, "avg_metrics": {"<lambda>": 0.15}, "state_columns": []}
