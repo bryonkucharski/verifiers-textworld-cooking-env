@@ -88,19 +88,31 @@ class TextWorldEnv(gym.Env):
     def reset(self, *, seed=None, options=None):
         super().reset(seed=seed, options=options)
         self.last_score = 0  # Initialize last_score at the start of each episode
-
+        self.total_score=0
+        
         if self.env is None:
             self.env = textworld.start(self.gamefile, self.infos, wrappers=[Filter])
 
-        return self.env.reset()
+        obs, infos = self.env.reset()
+        self.max_score = infos['max_score']
+
+        return obs, infos
 
     def step(self, action):
         observation, score, done, info = self.env.step(action)
+       
+        if done:
+            if score != self.max_score:
+                reward = -self.max_score
+            else:
+                reward = self.max_score
 
-        # Calculate reward (delta score) for this step
-        reward = score - self.last_score
+        else:
+            # Calculate reward (delta score) for this step
+            reward = score - self.last_score
+
         self.last_score = score
-
+        
         return observation, reward, done, info
 
 
