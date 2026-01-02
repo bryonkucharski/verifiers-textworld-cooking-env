@@ -41,9 +41,27 @@ prompt_template = """
 
 {obs}
 
-# Action Templates
-
-{command_templates}
+# Available commands templates: 
+look:                describe the current room           
+goal:                print the goal of this game  
+inventory:           print player's inventory
+go <dir>:            move the player north, east, south or west
+examine ...:         examine something more closely   
+eat ...:             eat edible food
+open ...:            open a door or a container 
+close ...:           close a door or a container 
+drop ...:            drop an object on the floor     
+take ...:            take an object that is on the floor  
+put ... on ...:      place an object on a supporter     
+take ... from ...:   take an object from a container or a supporter
+insert ... into ...: place an object into a container                   
+lock ... with ...:   lock a door or a container with a key            
+unlock ... with ...: unlock a door or a container with a key      
+cook ... with ...:   cook cookable food with something providing heat
+slice ... with ...:  slice cuttable food with something sharp
+chop ... with ...:   chop cuttable food with something sharp  
+dice ... with ...:   dice cuttable food with something sharp 
+prepare meal:        combine ingredients from inventory into a meal
 """
 
 
