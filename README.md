@@ -10,6 +10,23 @@
 - **Source links**: [GATA-public releases](https://github.com/xingdi-eric-yuan/GATA-public/releases)
 - **Split sizes**: Train and test splits available at multiple difficulty levels (1-10)
 
+### Difficulties 
+
+Textworld cooking env is designed to have a progression of difficulties. As you progress, the agent is required to either include more items in the recipe, navigate more rooms, or prepare each item differently. The table below outlines exactly the difference between difficulities
+
+| Difficulty | Recipe Size (Num Items)  | Num Locations | Max Score |  Need Cut |  Need Cook | 
+| --- | ---- | ---- | ---- |---- |---- |
+| 1 | 1 | 1 | 3 | ✗ | ✗ |
+| 2 | 1 | 1 | 4 | ✗ | ✓ |
+| 3 | 1 | 1 | 4 | ✓ | ✗ |
+| 4 | 1 | 6 | 3 | ✗ | ✗ |
+| 5 | 1 | 9 | 3 | ✗ | ✗ |
+| 6 | 1 | 12 | 3 | ✗ | ✗ |
+| 7 | 1 | 1 | 5 | ✓ | ✓ |
+| 8 | 3 | 6 | 5 | ✗ | ✗ |
+| 9 | 3 | 6 | 11 | ✓ | ✓ |
+| 10 | 3 | 12 | 11 | ✓ | ✓ |
+
 ### Task
 - **Type**: multi-turn (game interaction)
 - **Parser**: `XMLParser` with `action` field
