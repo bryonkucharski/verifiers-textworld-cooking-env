@@ -2,7 +2,7 @@
 name = "textworld_cooking_env"
 description = "TWCooking Environment from TALES Suit and GATA paper"
 tags = ["games", "multi-turn", "textworld", "cooking", "interactive-fiction", "xml", "train", "eval"]
-version = "0.1.1"
+version = "0.1.2"
 requires-python = ">=3.10"
 dependencies = [
     "verifiers>=0.1.8.post2",

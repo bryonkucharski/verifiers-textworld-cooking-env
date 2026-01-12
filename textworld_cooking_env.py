@@ -209,7 +209,9 @@ class TWCookingEnv(vf.MultiTurnEnv):
 
         if done:
             logger.debug("Game completed!")
-            state["game_completed"] = True
+            final_message = [{"role": "user", "content": obs}]
+            state["final_env_response"] = final_message
+            return final_message
 
         return [{"role": "user", "content": obs}]
 
